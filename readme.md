@@ -1,12 +1,13 @@
 ## Categories Queries App
 
-## Stack
+## Стек технологий
 
 - PHP (Laravel)
-- Database (mysql Provider)
+- mysql
 
-* Ключевой контроллер: /app/Http/Controllers/CategoriesController.php
+* Контроллер для БД: /app/Http/Controllers/CategoriesController.php
 * Получаемые от сервера данные в формате JSON (response.data)
+* Дамп для тестовой базы: /db/categories.sql
 
 ## Управление
 
@@ -62,6 +63,6 @@
 #### Особенности:
 
 * Поддержка одновременной сортировки (AND) по полям (name, description, active)
-* Сортировка по имени поля <name> (только разрешенные поля)
-* Направление сортировки регулируется знаком "-" (DESC) в значение поля sort
+* Сортировка по имени поля sort=#name# (только разрешенные поля)
+* Направление сортировки регулируется знаком "-" (DESC) в значение поля sort // sort=-description
 * Поддержка пагинации
