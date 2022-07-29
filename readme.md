@@ -7,7 +7,7 @@
 
 * Контроллер для БД: /app/Http/Controllers/CategoriesController.php
 * Получаемые от сервера данные в формате JSON (response.data)
-* Дамп для тестовой базы: /db/categories.sql
+* Поддержка Docker (Php 7.4-fpm, nginx, mysql)
 
 ## Управление
 
@@ -66,3 +66,35 @@
 * Сортировка по имени поля sort=#name# (только разрешенные поля)
 * Направление сортировки регулируется знаком "-" (DESC) в значение поля sort // sort=-description
 * Поддержка пагинации
+
+## Установка (Docker)
+
+### Окружение
+
+```
+docker-compose build app
+```
+```
+docker-compose up -d
+```
+```
+docker-compose exec app composer install
+```
+```
+docker-compose exec app php artisan key:generate
+```
+
+### Редактируем файл .env
+
+```
+DB_HOST=db
+```
+
+### Импортируем данные в базу
+
+```
+docker-compose exec app php artisan migrate:fresh
+```
+```
+docker-compose exec app php artisan db:seed --class=MainSeeder
+```
